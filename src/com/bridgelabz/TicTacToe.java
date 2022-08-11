@@ -7,6 +7,8 @@ public class TicTacToe {
 	static Scanner sc = new Scanner(System.in);
 	static char playerLetter;
 	static char computerLetter;
+	static int position;
+
 	static void createBoard(char[] board){
 
 		for(int i=1;i<10;i++){
@@ -35,11 +37,21 @@ public class TicTacToe {
 			System.out.println("Invalid Choice");
 		}
 	}
+	static void playerMove() {
+		System.out.println("Enter the position(1-9)");
+		position = sc.nextInt();
+		while (board[position] != ' ') {
+			System.out.println("Invalid option!! Please Try Again");
+			position = sc.nextInt();
+		}
+		makeMove();
+		System.out.println("Player moved to"+position);
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome To Tic Toe");
 		createBoard(board);
 		getLetter();
 		showBoard(board);
-		makeMove();
+		playerMove();
 	}
 }
