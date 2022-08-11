@@ -25,11 +25,21 @@ public class TicTacToe {
 		System.out.println(" "+ board[4]+"__|"+board[5]+"___|__"+board[6]);
 		System.out.println(" "+ board[7]+"  |"+board[8]+"   |"+board[9]);
 	}
-
+	public static void makeMove() {
+		int playLocation;
+		System.out.println("Enter Location 1-9 to Make Move");
+		playLocation = sc.nextInt();
+		if (playLocation < 10 && playLocation > 0) {
+			board[playLocation] = playerLetter;			
+		} else {
+			System.out.println("Invalid Choice");
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome To Tic Toe");
 		createBoard(board);
 		getLetter();
 		showBoard(board);
+		makeMove();
 	}
 }
