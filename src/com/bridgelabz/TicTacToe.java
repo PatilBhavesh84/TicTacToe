@@ -289,8 +289,12 @@ public class TicTacToe {
 					showBoard(board);
 					break;
 				}
+				isBlockAble = isBlockAble(board);
 				if (!isBlockAble) {
-					computerMove();
+					boolean takeCornerOrCenter = takeCorner(board, computerLetter);
+					if (!takeCornerOrCenter) {
+						computerMove();
+					}
 				}
 
 				isGameOver = isGameOver(board, computerLetter);
@@ -299,7 +303,6 @@ public class TicTacToe {
 			if (isGameOver) {
 				break;
 			}
-			computerMove();
 			currentPlayer = (currentPlayer == Player.COMPUTER) ? Player.PLAYER : Player.COMPUTER;
 		}
 	}
