@@ -4,26 +4,32 @@ import java.util.Scanner;
 
 public class TicTacToe {
 	static char[] board = new char[10];
-    static Scanner sc = new Scanner(System.in);
-    static char playerLetter;
-    static char computerLetter;
-    static void createBoard(char[] board){
+	static Scanner sc = new Scanner(System.in);
+	static char playerLetter;
+	static char computerLetter;
+	static void createBoard(char[] board){
 
-        for(int i=1;i<10;i++){
-            board[i]=' ';
-        }
-    }
-    static void getLetter(){
-        System.out.println("Pick any letter from-(X or O)");
-        playerLetter = sc.next().toUpperCase().charAt(0);
-        computerLetter = (playerLetter=='X')?'O':'X';
-        System.out.println("Your Letter is "+ playerLetter);
-        System.out.println("Computer Letter is "+ computerLetter);
-    }
+		for(int i=1;i<10;i++){
+			board[i]=' ';
+		}
+	}
+	static void getLetter(){
+		System.out.println("Pick any letter from-(X or O)");
+		playerLetter = sc.next().toUpperCase().charAt(0);
+		computerLetter = (playerLetter=='X')?'O':'X';
+		System.out.println("Your Letter is "+ playerLetter);
+		System.out.println("Computer Letter is "+ computerLetter);
+	}
+	static void showBoard(char[] board){
+		System.out.println(" "+ board[1]+"__|"+board[2]+"___|__"+board[3]);
+		System.out.println(" "+ board[4]+"__|"+board[5]+"___|__"+board[6]);
+		System.out.println(" "+ board[7]+"  |"+board[8]+"   |"+board[9]);
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome To Tic Toe");
 		createBoard(board);
-        getLetter();
-}
+		getLetter();
+		showBoard(board);
+	}
 }
