@@ -261,6 +261,16 @@ public class TicTacToe {
 		}
 		return false;
 	}
+	static boolean playAgain() {
+		System.out.println("If you want to play again press Y");
+		char choice = sc.next().toUpperCase().charAt(0);
+		if (choice == 'Y') {
+			return true;
+		} else {
+			System.out.println("Thank You for playing!!!");
+			return false;
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome To Tic Toe");
 		createBoard(board); 
@@ -303,7 +313,9 @@ public class TicTacToe {
 			if (isGameOver) {
 				break;
 			}
+			computerMove();
 			currentPlayer = (currentPlayer == Player.COMPUTER) ? Player.PLAYER : Player.COMPUTER;
 		}
+		while(playAgain());
 	}
 }
