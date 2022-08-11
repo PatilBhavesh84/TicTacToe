@@ -47,14 +47,14 @@ public class TicTacToe {
 		makeMove();
 		System.out.println("Player moved to"+position);
 	}
-	static currentPlayer toss() {
+	static Player toss() {
 		if((int)(Math.random()*10)%2==1){
             System.out.println("\nPlayer Won The Toss! Player Starts");
-            return currentPlayer.PLAYER;
+            return Player.PLAYER;
         }
         else{
             System.out.println("\nComputer Won The Toss! Computer Starts");
-            return currentPlayer.COMPUTER;
+            return Player.COMPUTER;
         }
 	}
 	public static void main(String[] args) {
