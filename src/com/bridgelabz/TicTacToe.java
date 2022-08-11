@@ -246,15 +246,21 @@ public class TicTacToe {
 	}
 	public static void main(String[] args) {
 		System.out.println("Welcome To Tic Toe");
-		Player currentPlayer=toss();
-		createBoard(board);
+		createBoard(board); 
 		getLetter();
+		showBoard(board);
+		playerMove();
+		showBoard(board);
+		computerMove();
+		showBoard(board);       
+		toss();
 
 		boolean isBlockAble;
 		boolean isGameOver;
 		boolean isWinAble;
 
 		while (true) {
+			Player currentPlayer = null;
 			if (currentPlayer == Player.PLAYER) {
 				playerMove();
 				isGameOver = isGameOver(board, playerLetter);
@@ -273,11 +279,11 @@ public class TicTacToe {
 				isGameOver = isGameOver(board, computerLetter);
 			}
 			showBoard(board);
-			if(isGameOver) {
+			if (isGameOver) {
 				break;
 			}
 			computerMove();
-			currentPlayer=(currentPlayer==Player.COMPUTER)?Player.PLAYER:Player.COMPUTER;
+			currentPlayer = (currentPlayer == Player.COMPUTER) ? Player.PLAYER : Player.COMPUTER;
 		}
 	}
 }
